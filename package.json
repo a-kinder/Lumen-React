@@ -1,0 +1,36 @@
+{
+  "name": "lumen-react",
+  "version": "1.0.0",
+  "description": "basic lumen/react/gulp/docker setup",
+  "main": "public/index.php",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-kinder/Lumen-React.git"
+  },
+  "keywords": [
+    "lumen",
+    "react",
+    "gulp",
+    "docker"
+  ],
+  "author": "Angela Kinder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-kinder/Lumen-React/issues"
+  },
+  "homepage": "https://github.com/a-kinder/Lumen-React#readme",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "gulp-babel": "^6.1.2"
+  }
+}
