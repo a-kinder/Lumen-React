@@ -1,22 +1,38 @@
 'use strict';
 
-var gulp = require("gulp");
-var babel = require("gulp-babel");
-
+import gulp from 'gulp';
+import runSequence from 'run-sequence';
+import htmlmin from 'gulp-htmlmin';
+import webpack from 'gulp-webpack';
 const config = {
     relSrc: 'src',
     src: __dirname + '/public',
-    out: __dirname + '/www',
+    out: __dirname + '/public',
 };
 
 const paths = {
     in: {
-        indexGlob: config.src + '/index.html',
+        indexGlob: config.src + '/../resources/views/home.php',
+        tsGlob: config.relSrc + '/**/*.tsx',
     },
     out: {
         indexDir: config.out + '/',
+        jsDir: '/js'
     }
 };
+
+const watchOpts = {};
+
+gulp.task('compile-typescript', ()=>{
+
+    return gulp.src(paths.in.tsEntry)
+        .pipe(plumber())
+        // .pipe(sourceMaps.init())
+        .pipe(webpack(require('./webpack.config.js')))
+        // .pipe(uglify())
+        // .pipe(sourceMaps.write("."))
+        .pipe(gulp.dest(paths.out.jsDir));
+});
 
 gulp.task('compile-index', ()=>{
 
