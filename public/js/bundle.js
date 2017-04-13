@@ -13408,18 +13408,6 @@ var API = (function () {
                 lastName: 'Flintstone'
             }
         });
-        // fetch(route, config)
-        //   .then((e)=>API.checkStatus(e))
-        //   .then((e)=>API.parseJSON(e))
-        //   .then(function(data) {
-        //     success(data)
-        //   }).catch(function(error) {
-        //         if(errorCallback){
-        //             errorCallback(error);
-        //         }else{
-        //             console.error('request failed', error)
-        //         }
-        //   })
     };
     API.checkStatus = function (response) {
         if (response.status >= 200 && response.status < 300) {

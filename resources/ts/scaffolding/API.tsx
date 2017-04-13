@@ -30,18 +30,6 @@ export class API{
           }
         });
 
-        // fetch(route, config)
-        //   .then((e)=>API.checkStatus(e))
-        //   .then((e)=>API.parseJSON(e))
-        //   .then(function(data) {
-        //     success(data)
-        //   }).catch(function(error) {
-        //         if(errorCallback){
-        //             errorCallback(error);
-        //         }else{
-        //             console.error('request failed', error)
-        //         }
-        //   })
     }
 
     public static checkStatus(response) {

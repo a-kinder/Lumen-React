@@ -4,6 +4,7 @@ import gulp from 'gulp';
 import runSequence from 'run-sequence';
 import htmlmin from 'gulp-htmlmin';
 import webpack from 'gulp-webpack';
+import sass from 'gulp-sass';
 const config = {
     relSrc: 'src',
     src: __dirname + '/public',
@@ -22,6 +23,16 @@ const paths = {
 };
 
 const watchOpts = {};
+ 
+gulp.task('sass', function () {
+  return gulp.src('./resources/sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./public/css'));
+});
+ 
+gulp.task('sass:watch', function () {
+  gulp.watch('./resources/sass/**/*.scss', ['sass']);
+});
 
 gulp.task('compile-typescript', ()=>{
 
@@ -48,7 +59,7 @@ gulp.task('build', ()=>{
     runSequence('compile-index');
 });
 
-gulp.task('watch', ['build'], () => {
+gulp.task('watch', ['build', 'sass'], () => {
 
     gulp.watch(paths.in.indexGlob, watchOpts, ['compile-index']);
 
