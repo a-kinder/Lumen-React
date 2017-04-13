@@ -12,10 +12,10 @@ class ExampleTest extends TestCase
      */
     public function testExample()
     {
-        $this->get('/');
+        $this->get('/hi');
 
         $this->assertEquals(
-            $this->app->version(), $this->response->getContent()
+            '{"message":"hi"}', $this->response->getContent()
         );
     }
 }

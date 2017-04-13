@@ -1,1 +1,1 @@
-Lumen API - React front-end - Docker - Gulp - Webpack - Sass
+Lumen - React - MySQL - Docker - Gulp - Webpack - Sass
