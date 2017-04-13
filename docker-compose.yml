@@ -10,3 +10,26 @@ services:
      - "${HTTPS_PORT:-443}:443"
     volumes:
       - ./public:/srv/www
+      - mysql-data:/var/lib/mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=lr_user
+      - DB_PASSWORD=abadpassword
+      - DB_NAME=lumen_react
+  mysql-data:
+    image: tianon/true:latest
+    volumes:
+      - mysql-data:/var/lib/mysql
+  mysql:
+    image: mysql:5.6
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=abadpassword
+      - MYSQL_DATABASE=lumen_react
+      - MYSQL_USER=lr_user
+      - MYSQL_PASSWORD=abadpassword
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+volumes:
+  mysql-data:
